@@ -120,6 +120,47 @@ nav {
     gap: 5px;
 }
 
+/* DEVELOPER BRANDING BOX (Placed at the very bottom below Reset Data) */
+.sidebar-branding {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--surface2);
+    border-radius: 10px;
+    margin-top: 8px;
+    border: 1px solid var(--border);
+}
+
+.dev-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    font-weight: 800;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.dev-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.dev-name {
+    font-size: 9px;
+    color: var(--muted);
+}
+
 /* ================= MAIN ================= */
 .main {
     margin-left: 250px;
@@ -917,10 +958,9 @@ body.dark .nav-item.active {
     background: #292b55;
 }
 
-body.dark .streak-badge {
-    background: #3c2319;
-    color: #ff944d;
-    border-color: #5c331e;
+body.dark .sidebar-branding {
+    background: #1b1e2b;
+    border-color: #2a3140;
 }
 
 /* ================= MOBILE ================= */
