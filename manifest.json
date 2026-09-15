@@ -1,0 +1,12 @@
+{
+  "background_color": "#731717",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Study Tracker",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Study",
+  "start_url": "/",
+  "theme_color": "#920808",
+  "description": "Student Syllabus and track planner."
+}
