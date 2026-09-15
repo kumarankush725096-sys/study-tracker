@@ -1,24 +1,24 @@
 {
-    "background_color": "#5b5ce2",
-    "dir": "ltr",
-    "display": "standalone",
-    "name": "StudyTrack Pro",
-    "orientation": "any",
-    "scope": "/",
-    "short_name": "StudyTrack",
-    "start_url": "/",
-    "theme_color": "#5b5ce2",
-    "description": "Student Syllabus and task planner powered by Ankush Kumar.",
-    "icons": [
-        {
-            "src": "icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "background_color": "#5b5ce2",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "StudyTrack Pro",
+  "orientation": "any",
+  "scope": "/study-tracker/",
+  "short_name": "StudyTrack",
+  "start_url": "/study-tracker/",
+  "theme_color": "#5b5ce2",
+  "description": "Student Syllabus and task planner powered by Ankush Kumar.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
