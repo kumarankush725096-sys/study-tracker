@@ -3,156 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>StudyTrack - Student Planner</title>
-
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="app">
 
     <!-- ================= SIDEBAR ================= -->
-
     <aside class="sidebar" id="sidebar">
-
         <div class="brand">
-
-            <div class="brand-icon">
-                S
-            </div>
-
+            <div class="brand-icon">S</div>
             <div>
                 <h1>StudyTrack</h1>
                 <span>Student Planner</span>
             </div>
-
         </div>
-
 
         <nav>
-
             <button class="nav-item active" data-page="dashboard">
-                <span>⌂</span>
-                Dashboard
+                <span>⌂</span> Dashboard
             </button>
-
             <button class="nav-item" data-page="subjects">
-                <span>▣</span>
-                Subjects
+                <span>▣</span> Subjects
             </button>
-
             <button class="nav-item" data-page="tasks">
-                <span>✓</span>
-                Tasks
+                <span>✓</span> Tasks
             </button>
-
             <button class="nav-item" data-page="plan">
-                <span>◷</span>
-                Study Plan
+                <span>◷</span> Study Plan
             </button>
-
             <button class="nav-item" data-page="progress">
-                <span>◒</span>
-                Progress
+                <span>◒</span> Progress
             </button>
-
         </nav>
 
-
         <div class="sidebar-bottom">
-
             <button class="nav-item" id="themeBtn">
-                <span>◐</span>
-                Dark mode
+                <span>◐</span> Dark mode
             </button>
-
             <button class="nav-item" id="resetBtn">
-                <span>↻</span>
-                Reset demo data
+                <span>↻</span> Reset data
             </button>
-
         </div>
-
     </aside>
 
-
     <!-- ================= MAIN ================= -->
-
     <main class="main">
 
         <!-- TOP BAR -->
-
         <header class="topbar">
-
-            <button class="menu-btn" id="menuBtn">
-                ☰
-            </button>
-
+            <button class="menu-btn" id="menuBtn">☰</button>
             <div>
-
-                <p class="eyebrow">
-                    YOUR STUDY SPACE
-                </p>
-
-                <h2 id="pageTitle">
-                    Dashboard
-                </h2>
-
+                <p class="eyebrow">YOUR STUDY SPACE</p>
+                <h2 id="pageTitle">Dashboard</h2>
             </div>
-
 
             <div class="top-actions">
-
+                <div class="streak-badge" id="streakBadge" title="Daily Study Streak">
+                    🔥 <span id="streakCount">1</span> Day Streak
+                </div>
                 <span class="date" id="todayDate"></span>
-
-                <button class="avatar">
-                    S
-                </button>
-
+                <div class="user-profile-display" id="userProfileDisplay" onclick="openLoginModal()" title="Click to switch user">
+                    <div class="avatar" id="userAvatar">S</div>
+                    <span id="userNameDisplay" class="user-name-text">Student</span>
+                </div>
             </div>
-
         </header>
 
-
         <!-- ================= DASHBOARD ================= -->
-
         <section id="dashboard" class="page active-page">
-
             <div class="welcome">
-
                 <div>
-
-                    <p class="muted">
-                        Good evening 👋
-                    </p>
-
-                    <h3>
-                        Keep going, you've got this.
-                    </h3>
-
-                    <p class="muted">
-                        Small progress every day becomes a finished syllabus.
-                    </p>
-
+                    <p class="muted" id="welcomeGreeting">Good evening 👋</p>
+                    <h3 id="welcomeTitle">Keep going, you've got this.</h3>
+                    <p class="muted">Small progress every day becomes a finished syllabus.</p>
                 </div>
-
-
-                <button
-                    class="primary-btn"
-                    onclick="showPage('subjects')">
-
-                    Manage syllabus →
-
-                </button>
-
+                <button class="primary-btn" onclick="showPage('subjects')">Manage syllabus →</button>
             </div>
 
             <!-- MOTIVATIONAL BANNER SLIDER -->
@@ -163,505 +95,211 @@
                 </div>
             </div>
 
-
             <!-- STATISTICS -->
-
             <div class="stats-grid">
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        Overall Progress
-                    </span>
-
-                    <strong id="overallProgress">
-                        0%
-                    </strong>
-
-                    <div class="mini-progress">
-                        <i id="overallBar"></i>
-                    </div>
-
+                    <span class="stat-label">Overall Progress</span>
+                    <strong id="overallProgress">0%</strong>
+                    <div class="mini-progress"><i id="overallBar"></i></div>
                 </div>
-
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        Subjects
-                    </span>
-
-                    <strong id="subjectCount">
-                        0
-                    </strong>
-
-                    <span class="stat-note">
-                        in your syllabus
-                    </span>
-
+                    <span class="stat-label">Subjects</span>
+                    <strong id="subjectCount">0</strong>
+                    <span class="stat-note">in your syllabus</span>
                 </div>
-
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        Topics Completed
-                    </span>
-
-                    <strong id="completedTopics">
-                        0
-                    </strong>
-
-                    <span
-                        class="stat-note"
-                        id="topicTotal">
-
-                        of 0 topics
-
-                    </span>
-
+                    <span class="stat-label">Topics Completed</span>
+                    <strong id="completedTopics">0</strong>
+                    <span class="stat-note" id="topicTotal">of 0 topics</span>
                 </div>
-
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        Pending Tasks
-                    </span>
-
-                    <strong id="pendingTasks">
-                        0
-                    </strong>
-
-                    <span class="stat-note">
-                        tasks remaining
-                    </span>
-
+                    <span class="stat-label">Pending Tasks</span>
+                    <strong id="pendingTasks">0</strong>
+                    <span class="stat-note">tasks remaining</span>
                 </div>
-
             </div>
-
 
             <!-- DASHBOARD TWO COLUMNS -->
-
             <div class="two-col">
-
-                <!-- SUBJECT PROGRESS -->
-
                 <div class="panel">
-
                     <div class="panel-head">
-
-                        <h3>
-                            Subject Progress
-                        </h3>
-
-                        <button
-                            class="text-btn"
-                            onclick="showPage('progress')">
-
-                            View all
-
-                        </button>
-
+                        <h3>Subject Progress & Topics</h3>
+                        <button class="text-btn" onclick="showPage('progress')">View all</button>
+                    </div>
+                    <div id="dashboardSubjectsList"></div>
+                </div>
+                
+                <!-- RIGHT COLUMN: POMODORO & TASKS -->
+                <div class="dashboard-right-col">
+                    <!-- POMODORO FOCUS TIMER -->
+                    <div class="panel pomodoro-panel">
+                        <div class="panel-head">
+                            <h3>⏱️ Focus Timer</h3>
+                            <span class="timer-mode-tag" id="timerModeTag">Study Session</span>
+                        </div>
+                        <div class="timer-display" id="timerDisplay">25:00</div>
+                        <div class="timer-controls">
+                            <button class="primary-btn" id="timerToggleBtn" onclick="toggleTimer()">Start Focus</button>
+                            <button class="secondary-btn" onclick="resetTimer()">Reset</button>
+                        </div>
                     </div>
 
-
-                    <div id="subjectProgressList"></div>
-
-                </div>
-
-
-                <!-- TODAY TASKS -->
-
-                <div class="panel">
-
-                    <div class="panel-head">
-
-                        <h3>
-                            Today's Tasks
-                        </h3>
-
-                        <button
-                            class="text-btn"
-                            onclick="showPage('tasks')">
-
-                            Manage
-
-                        </button>
-
+                    <!-- TODAY TASKS PANEL -->
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h3>Today's Tasks</h3>
+                            <button class="text-btn" onclick="showPage('tasks')">Manage</button>
+                        </div>
+                        <div id="todayTasks"></div>
                     </div>
-
-
-                    <div id="todayTasks"></div>
-
                 </div>
-
             </div>
-
         </section>
-
-
 
         <!-- ================= SUBJECTS ================= -->
-
         <section id="subjects" class="page">
-
             <div class="section-intro">
-
                 <div>
-
-                    <p class="muted">
-                        YOUR SYLLABUS
-                    </p>
-
-                    <h3>
-                        Subjects & Topics
-                    </h3>
-
-                    <p class="muted">
-                        Add subjects and track every topic from start to finish.
-                    </p>
-
+                    <p class="muted">YOUR SYLLABUS</p>
+                    <h3>Subjects & Topics</h3>
+                    <p class="muted">Add subjects and track every topic from start to finish.</p>
                 </div>
-
-
-                <button
-                    class="primary-btn"
-                    id="addSubjectBtn">
-
-                    + Add Subject
-
-                </button>
-
+                <button class="primary-btn" id="addSubjectBtn">+ Add Subject</button>
             </div>
-
-
-            <div
-                id="subjectsGrid"
-                class="subjects-grid">
-
-            </div>
-
+            <div id="subjectsGrid" class="subjects-grid"></div>
         </section>
-
-
 
         <!-- ================= TASKS ================= -->
-
         <section id="tasks" class="page">
-
             <div class="section-intro">
-
                 <div>
-
-                    <p class="muted">
-                        YOUR WORK
-                    </p>
-
-                    <h3>
-                        Tasks
-                    </h3>
-
-                    <p class="muted">
-                        Keep track of assignments, revision and daily study goals.
-                    </p>
-
+                    <p class="muted">YOUR WORK</p>
+                    <h3>Tasks</h3>
+                    <p class="muted">Keep track of assignments, revision and daily study goals.</p>
                 </div>
-
-
-                <button
-                    class="primary-btn"
-                    id="addTaskBtn">
-
-                    + Add Task
-
-                </button>
-
+                <button class="primary-btn" id="addTaskBtn">+ Add Task</button>
             </div>
-
-
             <div class="panel">
-
                 <div id="taskList"></div>
-
             </div>
-
         </section>
-
-
 
         <!-- ================= STUDY PLAN ================= -->
-
         <section id="plan" class="page">
-
             <div class="section-intro">
-
                 <div>
-
-                    <p class="muted">
-                        PLAN AHEAD
-                    </p>
-
-                    <h3>
-                        Study Plan
-                    </h3>
-
-                    <p class="muted">
-                        Use deadlines to decide what needs attention next.
-                    </p>
-
+                    <p class="muted">PLAN AHEAD</p>
+                    <h3>Study Plan</h3>
+                    <p class="muted">Use deadlines to decide what needs attention next.</p>
                 </div>
-
-
-                <button
-                    class="primary-btn"
-                    onclick="showPage('tasks'); setTimeout(()=>openTaskModal(),100)">
-
-                    + Plan Task
-
-                </button>
-
+                <button class="primary-btn" onclick="showPage('tasks'); setTimeout(()=>openTaskModal(),100)">+ Plan Task</button>
             </div>
-
-
             <div class="panel">
-
                 <div id="planList"></div>
-
             </div>
-
         </section>
 
-
-
-        <!-- ================= PROGRESS ================= -->
-
+        <!-- ================= PROGRESS & ACHIEVEMENTS ================= -->
         <section id="progress" class="page">
-
             <div class="section-intro">
-
                 <div>
-
-                    <p class="muted">
-                        YOUR PERFORMANCE
-                    </p>
-
-                    <h3>
-                        Progress Overview
-                    </h3>
-
-                    <p class="muted">
-                        See how far you have moved through your syllabus.
-                    </p>
-
+                    <p class="muted">YOUR PERFORMANCE</p>
+                    <h3>Progress & Achievements</h3>
+                    <p class="muted">Unlock badges as you power through your syllabus.</p>
                 </div>
-
             </div>
-
-
-            <!-- OVERALL PROGRESS -->
+            
+            <!-- ACHIEVEMENTS BADGES PANEL -->
+            <div class="panel achievements-panel" style="margin-bottom: 20px;">
+                <div class="panel-head">
+                    <h3>🏆 Milestone Badges</h3>
+                </div>
+                <div class="badges-grid" id="badgesGrid">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
 
             <div class="progress-hero panel">
-
-                <div
-                    class="circle-progress"
-                    id="circleProgress">
-
-                    <span id="circleValue">
-                        0%
-                    </span>
-
+                <div class="circle-progress" id="circleProgress">
+                    <span id="circleValue">0%</span>
                 </div>
-
-
                 <div>
-
-                    <p class="muted">
-                        Overall syllabus completion
-                    </p>
-
-                    <h3 id="progressHeadline">
-                        Let's get started.
-                    </h3>
-
-                    <p class="muted">
-                        Complete topics from your subjects to increase this percentage.
-                    </p>
-
+                    <p class="muted">Overall syllabus completion</p>
+                    <h3 id="progressHeadline">Let's get started.</h3>
+                    <p class="muted">Complete topics from your subjects to increase this percentage.</p>
                 </div>
-
             </div>
-
-
-            <!-- SUBJECT PROGRESS -->
-
             <div class="panel">
-
                 <div class="panel-head">
-
-                    <h3>
-                        Subject-wise Progress
-                    </h3>
-
+                    <h3>Subject-wise Progress</h3>
                 </div>
-
-
                 <div id="allProgressList"></div>
-
             </div>
-
         </section>
-
     </main>
-
 </div>
 
+<!-- ================= LOGIN / PROFILE MODAL ================= -->
+<div class="modal-backdrop" id="loginModal">
+    <div class="modal">
+        <h3>Welcome to StudyTrack 👋</h3>
+        <p class="muted">Please enter your details to personalize your planner.</p>
+        
+        <label>
+            Your Name
+            <input id="loginNameInput" placeholder="e.g. Ankush Kumar">
+        </label>
+        
+        <label>
+            Email Address
+            <input id="loginEmailInput" type="email" placeholder="e.g. student@gmail.com">
+        </label>
 
+        <button class="primary-btn full" id="saveLoginBtn" style="margin-top: 20px;">Get Started</button>
+    </div>
+</div>
 
 <!-- ================= ADD SUBJECT MODAL ================= -->
-
-<div
-    class="modal-backdrop"
-    id="subjectModal">
-
+<div class="modal-backdrop" id="subjectModal">
     <div class="modal">
-
-        <button
-            class="close-btn"
-            onclick="closeModal('subjectModal')">
-
-            ×
-
-        </button>
-
-
-        <h3>
-            Add Subject
-        </h3>
-
-        <p class="muted">
-            Create a subject and enter its topics.
-        </p>
-
-
+        <button class="close-btn" onclick="closeModal('subjectModal')">×</button>
+        <h3>Add Subject</h3>
+        <p class="muted">Create a subject and enter its topics.</p>
         <label>
-
             Subject name
-
-            <input
-                id="subjectName"
-                placeholder="e.g. Data Structures">
-
+            <input id="subjectName" placeholder="e.g. Data Structures">
         </label>
-
-
         <label>
-
-            Topics
-            <span class="muted">
-                (one topic per line)
-            </span>
-
-            <textarea
-                id="subjectTopics"
-                placeholder="Arrays
-Linked Lists
-Stacks
-Queues">
-
-            </textarea>
-
+            Topics <span class="muted">(one topic per line)</span>
+            <textarea id="subjectTopics" placeholder="Arrays&#10;Linked Lists&#10;Stacks&#10;Queues"></textarea>
         </label>
-
-
-        <button
-            class="primary-btn full"
-            id="saveSubjectBtn">
-
-            Save Subject
-
-        </button>
-
+        <button class="primary-btn full" id="saveSubjectBtn">Save Subject</button>
     </div>
-
 </div>
-
-
 
 <!-- ================= ADD TASK MODAL ================= -->
-
-<div
-    class="modal-backdrop"
-    id="taskModal">
-
+<div class="modal-backdrop" id="taskModal">
     <div class="modal">
-
-        <button
-            class="close-btn"
-            onclick="closeModal('taskModal')">
-
-            ×
-
-        </button>
-
-
-        <h3>
-            Add Task
-        </h3>
-
-        <p class="muted">
-            Add something you want to finish.
-        </p>
-
-
+        <button class="close-btn" onclick="closeModal('taskModal')">×</button>
+        <h3>Add Task</h3>
+        <p class="muted">Add something you want to finish.</p>
         <label>
-
             Task
-
-            <input
-                id="taskTitle"
-                placeholder="e.g. Revise transistor biasing">
-
+            <input id="taskTitle" placeholder="e.g. Revise transistor biasing">
         </label>
-
-
         <label>
-
             Subject
-
             <select id="taskSubject"></select>
-
         </label>
-
-
         <label>
-
             Due date
-
-            <input
-                id="taskDate"
-                type="date">
-
+            <input id="taskDate" type="date">
         </label>
-
-
-        <button
-            class="primary-btn full"
-            id="saveTaskBtn">
-
-            Add Task
-
-        </button>
-
+        <button class="primary-btn full" id="saveTaskBtn">Add Task</button>
     </div>
-
 </div>
 
-
 <!-- JAVASCRIPT -->
-
 <script src="script.js"></script>
-
 </body>
 </html>
